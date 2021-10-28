@@ -1,0 +1,17 @@
+package com.caffeapi.aplication.services;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+
+import com.caffeapi.aplication.repository.TipoDocumentoRepository;
+
+public class TipoDocumentoService {
+
+	
+	@Autowired	
+	private TipoDocumentoRepository TipoDocumentoRepositorio;
+	
+	
+}

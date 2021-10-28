@@ -1,0 +1,5 @@
+package com.caffeapi.aplication.repository;
+
+public interface TipoDocumentoRepository {
+
+}

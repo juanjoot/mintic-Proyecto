@@ -1,0 +1,6 @@
+package com.caffeapi.aplication.entity;
+
+
+public class TipoDocumento {
+
+}

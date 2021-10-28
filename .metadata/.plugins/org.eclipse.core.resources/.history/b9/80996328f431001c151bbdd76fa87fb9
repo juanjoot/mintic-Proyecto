@@ -1,0 +1,13 @@
+package com.caffeapi.aplication;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CaffeApiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CaffeApiApplication.class, args);
+	}
+
+}

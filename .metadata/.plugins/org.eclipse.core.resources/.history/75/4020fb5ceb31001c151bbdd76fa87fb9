@@ -1,0 +1,35 @@
+package com.caffeapi.aplication.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.caffeapi.aplication.entity.TipoDocumento;
+import com.caffeapi.aplication.repository.TipoDocumentoRepository;
+
+public class TipoDocumentoService {
+
+	
+	@Autowired	
+	private TipoDocumentoRepository TipoDocumentoRepositorio;
+	
+	public List<TipoDocumento> findAll() {
+		List<TipoDocumento> TipoDocumentoall = TipoDocumentoRepositorio.findAll();
+		return TipoDocumentoall;
+	}		
+	
+	@Transactional
+	public void delete(Long iddocumento) {
+		TipoDocumento objtipoDocumento = TipoDocumentoRepositorio.findById(iddocumento)
+				.orElseThrow(()-> new RuntimeException("No Existe el tipo de documento"));
+		
+		TipoDocumentoRepositorio.delete(objtipoDocumento);
+		
+	}		
+	
+	@Transactional
+	public TipoDocumento create(TipoDocumento Tipodocumento) {
+		TipoDocumento nuevoTipoDocumento = TipoDocumentoRepositorio.save(Tipodocumento);
+		return nuevoTipoDocumento;
+	}
+}

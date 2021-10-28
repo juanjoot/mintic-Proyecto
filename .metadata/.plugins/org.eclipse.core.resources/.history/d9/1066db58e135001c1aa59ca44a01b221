@@ -1,0 +1,5 @@
+INSERT INTO perfiles (nombre) VALUES ('Administrador');
+INSERT INTO perfiles (nombre) VALUES ('Cliente');
+INSERT INTO Tipodocumento (Tipodocumentodesc) values ('Cedula Ciudadania');
+INSERT INTO Tipodocumento (Tipodocumentodesc) values ('Cedula Extrangeria');
+INSERT INTO Tipodocumento (Tipodocumentodesc) values ('Otro');

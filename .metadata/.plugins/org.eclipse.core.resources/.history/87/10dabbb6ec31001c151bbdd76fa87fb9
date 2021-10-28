@@ -1,0 +1,55 @@
+package com.caffeapi.aplication.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+@Table(name="Usuarios")
+public class Usuarios {
+
+	@Id
+	@Column(name="idUsuario")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idUsuario;
+	
+	@Column(name="TipoDocumento" , nullable = false , length = 2)
+	private Integer TipoDocumento;
+	
+	@Column(name="NumeroDocumento" , nullable = false , length = 100)
+	private String NumeroDocumento;
+	
+	@Column(name="NombreUsuario" , nullable = false , length = 100)
+	private String NombreUsuario;
+	
+	@Column(name="GeneroUsuario" ,nullable = false , length = 10)
+	private String GeneroUsuario;
+	
+	@Column(name="FechaNacimiento" ,nullable = false , length = 10)
+	private String FechaNacimiento;
+	
+	@Column(name="NumeroTel", nullable = false , length = 15)
+	private Long NumeroTel;
+	
+	@Column(name="CorreoUsuario", nullable = false , length = 50)
+	private String CorreoUsuario;
+	
+	@Column(name="ContrasenaUsuario", nullable = false , length = 20)
+	private String ContrasenaUsuario;
+	
+	@ManyToOne
+	@JoinColumn(name = "idDocumento")
+	private TipoDocumento tipodocumento;
+	
+	public Usuarios() {}
+}

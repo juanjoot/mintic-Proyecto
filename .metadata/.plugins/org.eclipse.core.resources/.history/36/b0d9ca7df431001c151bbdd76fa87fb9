@@ -1,0 +1,55 @@
+package com.caffeapi.aplication.services;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+import com.caffeapi.aplication.entity.TipoDocumento;
+import com.caffeapi.aplication.repository.TipoDocumentoRepository;
+
+public class TipoDocumentoService {
+
+	@Autowired	
+	private TipoDocumentoRepository TipoDocumentoRepositorio;
+	
+	public List<TipoDocumento> findAll() {
+		List<TipoDocumento> TipoDocumentoall = TipoDocumentoRepositorio.findAll();
+		return TipoDocumentoall;
+	}		
+	
+	public TipoDocumento findById(Long Iddocumento) {
+		TipoDocumento objTipoDocumento = TipoDocumentoRepositorio.findById(Iddocumento)
+				.orElseThrow(() -> new RuntimeException("No existe el tipo de documento."));
+		return objTipoDocumento;
+	}
+	
+	@Transactional
+	public void delete(Long iddocumento) {
+		TipoDocumento objtipoDocumento = TipoDocumentoRepositorio.findById(iddocumento)
+				.orElseThrow(()-> new RuntimeException("No Existe el tipo de documento"));
+		
+		TipoDocumentoRepositorio.delete(objtipoDocumento);
+		
+	}	
+	
+	@Transactional
+	public TipoDocumento create(TipoDocumento Tipodocumento) {
+		TipoDocumento nuevoTipoDocumento = TipoDocumentoRepositorio.save(Tipodocumento);
+		return nuevoTipoDocumento;
+	}
+	
+	@Transactional
+	public TipoDocumento update(TipoDocumento TipoDocumento) {
+		TipoDocumento existeTipoDocumento = TipoDocumentoRepositorio.findById(TipoDocumento.getIdDocumento())
+				.orElseThrow(()-> new RuntimeException("No Existe el tipo Documento "));
+		
+		existeTipoDocumento.setTipoDocumentoDesc(TipoDocumento.getTipoDocumentoDesc());
+		TipoDocumentoRepositorio.save(existeTipoDocumento);
+		return existeTipoDocumento;
+	}
+	
+
+}

@@ -1,0 +1,20 @@
+package com.caffeapi.aplication.entity;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+
+public class Perfil {
+
+
+	private Long id;	
+
+	private String nombre;
+
+	public Perfil() {
+		
+	}
+	
+}

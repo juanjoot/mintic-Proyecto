@@ -1,0 +1,12 @@
+package com.caffeapi.aplication.controllers;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MiControladorDemo {
+
+	public String saludar () {
+		return "hola como estas";
+	}
+	
+}

@@ -1,0 +1,14 @@
+package com.caffeapi.aplication.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.caffeapi.aplication.services.DocumentosService;
+
+@RestController
+public class DocumentoController {
+
+	@Autowired
+	private DocumentosService TipDocServicio;
+	
+}
